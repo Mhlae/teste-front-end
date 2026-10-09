@@ -1,0 +1,31 @@
+@use '../styles/variables' as *;
+
+.econverse-logo {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  color: $newsletter-purple;
+  text-decoration: none;
+
+  &__mark {
+    display: grid;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: $brand-yellow;
+    color: $white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -3px;
+    line-height: 1;
+  }
+
+  &__word {
+    margin-left: 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -1px;
+  }
+}

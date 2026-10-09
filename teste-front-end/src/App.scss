@@ -1,0 +1,31 @@
+@use './styles/variables' as *;
+
+#root {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+main {
+  width: 100%;
+}
+
+.content-width {
+  width: min(calc(100% - 48px), $content-width);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 600px) {
+  .content-width {
+    width: calc(100% - 32px);
+  }
+}

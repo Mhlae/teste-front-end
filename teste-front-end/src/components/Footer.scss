@@ -1,0 +1,113 @@
+@use '../styles/variables' as *;
+
+.site-footer {
+  background: $gray-100;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 48px;
+    padding-block: 43px 38px;
+  }
+
+  &__about {
+    padding-right: 38px;
+    border-right: 1px solid $gray-300;
+
+    > a {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    p {
+      max-width: 230px;
+      margin: 15px 0 20px;
+      color: $gray-500;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+
+    a {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid $gray-300;
+      border-radius: 50%;
+      color: $brand-blue;
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
+
+    h2 {
+      margin: 0 0 5px;
+      color: $gray-900;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    a {
+      color: $gray-500;
+      font-size: 11px;
+      text-decoration: none;
+
+      &:hover {
+        color: $brand-blue;
+      }
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    min-height: 37px;
+    place-items: center;
+    background: $white;
+    color: $gray-500;
+    font-size: 9px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+
+  .site-footer__about {
+    grid-column: 1 / -1;
+    padding: 0 0 20px;
+    border-right: 0;
+    border-bottom: 1px solid $gray-300;
+
+    p {
+      max-width: 320px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-block: 32px;
+  }
+
+  .site-footer__links:last-child {
+    grid-column: 2;
+  }
+}

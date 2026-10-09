@@ -1,0 +1,71 @@
+@use '../styles/variables' as *;
+
+.partner-banners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  padding-bottom: 46px;
+}
+
+.partner-banner {
+  position: relative;
+  display: flex;
+  min-height: 220px;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 9px;
+  background-color: $gray-700;
+  background-position: center;
+  background-size: cover;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(22 24 31 / 76%), rgb(22 24 31 / 18%));
+    content: '';
+  }
+
+  &__content {
+    position: relative;
+    max-width: 380px;
+    padding: 28px 34px;
+    color: $white;
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 31px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 20px;
+      font-size: 13px;
+    }
+
+    a {
+      display: inline-flex;
+      min-width: 120px;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background: $brand-yellow;
+      color: $newsletter-purple;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .partner-banners {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-bottom: 35px;
+  }
+
+  .partner-banner {
+    min-height: 190px;
+  }
+}

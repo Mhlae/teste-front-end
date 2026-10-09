@@ -1,0 +1,46 @@
+$color-primary: #3442b5;
+$color-primary-strong: #3019b2;
+$color-accent: #f7ca11;
+$color-navy: #271c47;
+$color-text: #3f3f40;
+$color-text-muted: #808080;
+$color-text-nav: #9f9f9f;
+$color-text-cat: #4e4e4e;
+$color-text-footer: #727272;
+$color-text-footer-title: #5f5f5f;
+$color-surface: #ffffff;
+$color-surface-alt: #f4f4f4;
+$color-border: #dedede;
+$color-divider: #f0f0f0;
+$color-overlay: rgb(0 0 0 / 54%);
+$color-banner-overlay: rgb(0 0 0 / 54%);
+
+:root {
+  --color-primary: #3442b5;
+  --color-primary-strong: #3019b2;
+  --color-accent: #f7ca11;
+  --color-navy: #271c47;
+  --color-text: #3f3f40;
+  --color-text-muted: #808080;
+  --color-text-nav: #9f9f9f;
+  --color-text-cat: #4e4e4e;
+  --color-text-footer: #727272;
+  --color-text-footer-title: #5f5f5f;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4f4f4;
+  --color-border: #dedede;
+  --color-divider: #f0f0f0;
+  --color-overlay: rgba(0, 0, 0, 0.54);
+  --color-banner-overlay: rgba(0, 0, 0, 0.54);
+
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+  --radius-card: 8px;
+  --radius-button: 4px;
+  --shadow-product: 0 4px 16px rgb(0 0 0 / 12%);
+  --shadow-category: 0 2px 8px rgb(0 0 0 / 8%);
+  --shadow-brand: 0 8px 24px rgb(0 0 0 / 12%);
+  --shadow-arrow: 0 2px 6px rgb(0 0 0 / 25%);
+  --shadow-menu: 0 4px 8px rgb(0 0 0 / 6%);
+  --container-width: 1280px;
+  --space-base: 4px;
+}

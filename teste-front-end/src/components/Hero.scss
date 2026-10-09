@@ -1,0 +1,82 @@
+@use '../styles/variables' as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 380px;
+  align-items: center;
+  overflow: hidden;
+  background: $gray-900;
+  color: $white;
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(90deg, rgb(16 18 28 / 76%) 0%, rgb(16 18 28 / 34%) 65%, rgb(16 18 28 / 22%) 100%),
+      url('../assets/promo-banner.jpg');
+    background-position: center 48%;
+    background-size: cover;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding-block: 48px;
+
+    h1 {
+      max-width: 570px;
+      margin: 0;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    p {
+      margin: 16px 0 25px;
+      color: $white;
+      font-size: clamp(21px, 2.5vw, 29px);
+      font-weight: 500;
+
+      strong {
+        color: $brand-yellow;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    min-width: 160px;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    border-radius: 4px;
+    background: $brand-yellow;
+    color: $newsletter-purple;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+
+    &:hover {
+      background: #ffdc4d;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 310px;
+    background-position: 58% center;
+
+    &__content {
+      padding-block: 32px;
+
+      h1 {
+        max-width: 370px;
+      }
+    }
+  }
+}
