@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { BenefitsBar } from './components/BenefitsBar'
 import { BrandSection } from './components/BrandSection'
 import { CategoryNav } from './components/CategoryNav'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { Navigation } from './components/Navigation'
 import { Newsletter } from './components/Newsletter'
 import { PartnerBanners } from './components/PartnerBanners'
 import { ProductGrid } from './components/ProductGrid'
@@ -98,16 +96,22 @@ function App() {
     setRetryCount((current) => current + 1)
   }
 
+  function selectHeaderCategory(category: string) {
+    setSelectedCategory(category)
+    document
+      .getElementById('categorias')
+      ?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <>
       {/* Topo da página com benefícios e navegação principal */}
-      <BenefitsBar />
       <Header
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         cartCount={cartCount}
+        onSelectCategory={selectHeaderCategory}
       />
-      <Navigation onSelectCategory={setSelectedCategory} />
 
       <main>
         {/* Hero + categorias funcionam como primeira área de descoberta do cliente */}

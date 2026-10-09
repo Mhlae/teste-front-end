@@ -1,144 +1,300 @@
-@use '../styles/variables' as *;
+$header-white: #ffffff;
+$header-search-background: #f6f5f2;
+$header-divider: #f0f0f0;
+$header-muted: #9f9f9f;
+$header-highlight: #3019b2;
+$header-logo-yellow: #f7ca11;
+$header-logo-ink: #271c47;
+$header-nav-shadow: 0 8px 16px 0 rgba(57, 48, 19, 0.12);
 
-.site-header {
-  background: $white;
+// Reset local e moldura comum das três faixas.
+.header {
+  width: 100%;
+  color: $header-muted;
+  font-family: 'Poppins', sans-serif;
+  line-height: normal;
 
-  &__inner {
-    display: grid;
-    min-height: 92px;
-    grid-template-columns: 190px minmax(260px, 1fr) 230px;
-    align-items: center;
-    gap: 42px;
+  &,
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
-  &__search {
+  &__background {
+    width: 100%;
+    background: $header-white;
+  }
+
+  &__layout {
+    position: relative;
+    width: 1280px;
+    max-width: 100%;
+    height: 100%;
+    margin-inline: auto;
+  }
+
+  // Faixa de benefícios, com separação e alinhamento horizontal do Figma.
+  &__background--benefits {
+    height: 32px;
+
+    .header__layout {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__benefits {
     display: flex;
-    height: 46px;
-    overflow: hidden;
-    border: 1px solid $gray-200;
-    border-radius: 24px;
-    background: $white;
+    height: 20px;
+    align-items: center;
+    gap: 119px;
+    margin-left: 258px;
+    white-space: nowrap;
+  }
+
+  &__benefit {
+    display: flex;
+    height: 20px;
+    align-items: center;
+    gap: 9px;
+    color: $header-muted;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &__benefit-label {
+    color: $header-muted;
+    font-size: 12px;
+    font-weight: 500;
+
+    strong {
+      color: $header-highlight;
+      font-weight: 600;
+    }
+  }
+
+  &__security-icon,
+  &__shipping-icon,
+  &__installments-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    color: $header-muted;
+    stroke: currentColor;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__divider--benefits,
+  &__divider--nav {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: $header-divider;
+    pointer-events: none;
+  }
+
+  &__divider--benefits {
+    bottom: -1px;
+  }
+
+  // Faixa principal: colunas fixas reproduzem as coordenadas do logo, busca e ações.
+  &__background--main {
+    height: 72px;
+
+    .header__layout {
+      display: grid;
+      grid-template-columns: 139px 186px 630px 109px 216px;
+      align-items: center;
+    }
+  }
+
+  &__brand {
+    display: block;
+    width: 139px;
+    height: 41.3px;
+    grid-column: 1;
+    color: $header-logo-ink;
+  }
+
+  &__logo {
+    display: block;
+    width: 139px;
+    height: 42px;
+    object-fit: contain;
+  }
+
+  &__search-background {
+    display: flex;
+    width: 630px;
+    height: 48px;
+    align-items: center;
+    grid-column: 3;
+    border-radius: 10px;
+    background: $header-search-background;
 
     input {
+      width: 100%;
       min-width: 0;
-      flex: 1;
-      padding: 0 18px;
+      height: 100%;
+      flex: 1 1 auto;
+      padding: 0 0 0 16px;
       border: 0;
-      outline: none;
-      color: $gray-900;
-      font-size: 13px;
+      border-radius: 10px 0 0 10px;
+      background: transparent;
+      color: $header-muted;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
 
       &::placeholder {
-        color: $gray-500;
-      }
-
-      &:focus-visible {
-        outline: 0;
+        color: $header-muted;
+        opacity: 1;
       }
     }
 
     button {
       display: grid;
-      width: 50px;
-      flex: 0 0 auto;
-      place-items: center;
+      width: 76px;
+      height: 100%;
+      flex: 0 0 76px;
+      place-items: center end;
+      padding: 0 24px 0 0;
       border: 0;
+      border-radius: 0 10px 10px 0;
       background: transparent;
-      color: $brand-blue;
+      color: $header-muted;
       cursor: pointer;
     }
+  }
 
-    svg {
-      width: 20px;
-      height: 20px;
-    }
+  &__search-icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   &__actions {
     display: flex;
+    width: 216px;
+    height: 32px;
     align-items: center;
-    justify-content: flex-end;
-    gap: 22px;
+    grid-column: 5;
+    gap: 32px;
   }
 
   &__action {
     position: relative;
     display: grid;
-    width: 28px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
     place-items: center;
-    color: $brand-blue;
-    text-decoration: none;
+    color: $header-muted;
 
-    svg {
-      width: 23px;
-      height: 23px;
+    &:first-child {
+      width: 24px;
+      height: 24px;
+      flex-basis: 24px;
     }
   }
 
-  &__count {
+  &__orders-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__favorites-icon,
+  &__account-icon,
+  &__cart-icon {
+    width: 32px;
+    height: 32px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__cart-count {
     position: absolute;
     top: -2px;
-    right: -5px;
+    right: -4px;
     display: grid;
     min-width: 16px;
     height: 16px;
     place-items: center;
-    padding: 0 3px;
+    padding-inline: 3px;
     border-radius: 50%;
-    background: $brand-yellow;
-    color: $gray-900;
+    background: $header-logo-yellow;
+    color: $header-logo-ink;
     font-size: 10px;
-    font-weight: 700;
-  }
-}
-
-@media (max-width: 900px) {
-  .site-header__inner {
-    grid-template-columns: 160px minmax(180px, 1fr) 150px;
-    gap: 20px;
+    font-weight: 600;
   }
 
-  .site-header__actions {
-    gap: 13px;
+  &__divider--nav {
+    bottom: -1px;
   }
 
-  .site-header__action:nth-child(1),
-  .site-header__action:nth-child(2) {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .site-header__inner {
-    min-height: 72px;
-    grid-template-columns: 1fr auto;
-    gap: 8px 12px;
-    padding-block: 10px;
-  }
-
-  .econverse-logo__mark {
-    width: 37px;
-    height: 37px;
-    font-size: 24px;
-  }
-
-  .econverse-logo__word {
-    font-size: 20px;
-  }
-
-  .site-header__search {
+  // Faixa de navegação com sete itens, larguras e intervalos especificados.
+  &__background--nav {
+    position: relative;
+    z-index: 2;
     height: 40px;
-    grid-row: 2;
-    grid-column: 1 / -1;
+    box-shadow: $header-nav-shadow;
+
+    .header__layout {
+      display: flex;
+      align-items: center;
+    }
   }
 
-  .site-header__actions {
-    gap: 10px;
+  &__nav-list {
+    display: flex;
+    width: 1141px;
+    height: 20px;
+    align-items: center;
+    gap: 91px;
+    margin-left: 69px;
+    white-space: nowrap;
   }
 
-  .site-header__action:nth-child(1),
-  .site-header__action:nth-child(2) {
-    display: grid;
+  &__nav-link,
+  &__subscription {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    color: $header-muted;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  &__nav-link--offers {
+    color: $header-highlight;
+  }
+
+  &__subscription {
+    gap: 12px;
+  }
+
+  &__subscription-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    color: $header-muted;
+  }
+
+  &__subscription-label {
+    color: $header-muted;
   }
 }

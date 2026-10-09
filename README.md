@@ -1,31 +1,70 @@
-# Teste Econverse: Vaga Desenvolvedor Front-End
+# Teste Econverse — Front-end
 
-### Vem ser #Econverse!
+### Theo Cordella
 
-Segue abaixo as instruções para a execução do teste.
+Aplicação de e-commerce desenvolvida para o teste de vaga Front-end da
+Econverse. O projeto usa React, TypeScript, Vite e Sass, sem biblioteca externa
+de componentes visuais.
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas** 
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail gustavo.cipriano@econverse.com.br com o título **Teste Vaga FrontEnd**
+## Requisitos
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+- Node.js e npm instalados.
+- A aplicação fica na pasta `teste-front-end`; execute os comandos abaixo a
+  partir dela.
 
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+## Instalação e execução
 
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+```bash
+cd teste-front-end
+npm install
+npm run dev
+```
 
-**Boa sorte! ;)**
+O Vite informa no terminal o endereço local da aplicação (normalmente
+`http://localhost:5173`).
+
+## Comandos disponíveis
+
+```bash
+npm run dev       # inicia o servidor de desenvolvimento
+npm run build     # verifica os projetos TypeScript e gera o build de produção
+npm run preview   # serve localmente o build de produção
+npm run lint      # executa o Oxlint
+```
+
+## Estrutura do projeto
+
+Os arquivos da aplicação estão em `teste-front-end/src`:
+
+- `App.tsx`: compõe as seções da página e mantém estados de produtos, busca,
+  categoria, abas, carrinho, carregamento, erro e produto selecionado.
+- `components/`: componentes visuais da página, incluindo `Header`,
+  `ProductGrid`, `ProductCard`, `ProductModal`, `CategoryNav`,
+  `PartnerBanners`, `BrandSection`, `Newsletter` e `Footer`.
+- `services/`: acesso e tratamento dos dados de produtos.
+- `data/`: catálogo local usado como fallback.
+- `hooks/`: hooks reutilizáveis, como bloqueio de rolagem e fechamento por
+  Escape do modal.
+- `types/` e `utils/`: tipos compartilhados e funções utilitárias.
+- `styles/`: reset, tokens, variáveis, mixins e estilos globais.
+
+## Organização da página
+
+A home é composta nesta ordem:
+
+1. Header com benefícios, logo, busca, ações e navegação.
+2. Hero promocional.
+3. Navegação por categorias.
+4. Vitrine de produtos relacionados com abas.
+5. Banners de parceiros.
+6. Segunda vitrine de produtos.
+7. Banners de parceiros.
+8. Seção “Navegue por marcas”.
+9. Terceira vitrine de produtos.
+10. Newsletter e footer.
+11. Modal de detalhes do produto, exibido quando um produto é selecionado.
+
+O `App.tsx` coordena os estados compartilhados: a busca filtra nome, descrição
+e categoria; as categorias filtram as vitrines; as abas filtram a primeira
+vitrine. A seleção de categoria no Header também atualiza o filtro e leva até a
+seção de categorias.

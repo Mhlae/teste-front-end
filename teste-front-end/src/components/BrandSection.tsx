@@ -1,6 +1,6 @@
 import './BrandSection.scss'
 
-const brands = ['Apple', 'Samsung', 'Motorola', 'Xiaomi', 'Dell']
+const brands = [1, 2, 3, 4, 5]
 
 export function BrandSection() {
   return (
@@ -15,10 +15,16 @@ export function BrandSection() {
           <a
             className="brand-section__item"
             href="#vitrine-celulares"
-            aria-label={`Ver produtos da marca ${brand}`}
+            aria-label="Ver produtos da marca Econverse"
             key={brand}
           >
-            <span className="brand-section__name">{brand}</span>
+            <img
+              className="brand-section__logo"
+              src={`/Teste%20Front-End%20Jr%20%28Copy%29/Logo-${brand}.png`}
+              alt="Econverse"
+              width="117"
+              height="35"
+            />
           </a>
         ))}
       </div>
